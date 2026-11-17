@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Model Canvas – Frames Creative | Lenice Pereira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf3ec; --ink:#2b2b2b; --muted:#6b6b6b; --coral:#ef6f5b;
+    --orange:#f0a05a; --yellow:#f2b234; --green:#4fb87f; --purple:#7b7fe6;
+    --red:#e9505a; --blue:#4f9be8; --teal:#3fb48a; --deep:#f07a3a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;
+    background-image:radial-gradient(circle at 10% 0%,#ffe6d6 0,transparent 40%),radial-gradient(circle at 100% 100%,#ffe9dc 0,transparent 40%)}
+  header{max-width:1400px;margin:0 auto;padding:28px 24px 8px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .eyebrow{font-weight:600;letter-spacing:.08em;font-size:14px;color:#444}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--coral);font-size:clamp(34px,5vw,64px);letter-spacing:.04em;text-transform:uppercase;line-height:1}
+  .brand{height:clamp(36px,4.6vw,68px);width:auto;display:block}
+
+  .bar{max-width:1400px;margin:0 auto;padding:8px 24px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .btn{border:0;cursor:pointer;font:500 13px 'Poppins';padding:8px 15px;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.06);transition:.2s}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.1)}
+  .btn.primary{background:var(--coral);color:#fff}
+  .btn.dark{background:var(--ink);color:#fff}
+  .progress{font-size:12px;color:var(--muted);margin-left:auto}
+
+
+  .canvas{max-width:1400px;margin:0 auto;padding:14px 24px 40px;display:grid;gap:14px;
+    grid-template-columns:repeat(10,1fr);
+    grid-template-areas:
+      "kp kp ka ka vp vp cr cr cs cs"
+      "kp kp kr kr vp vp ch ch cs cs"
+      "co co co co co rv rv rv rv rv"}
+
+  /* flip card */
+  .block{perspective:1400px;cursor:pointer;min-height:200px}
+  .inner{display:grid;height:100%;transition:transform .7s cubic-bezier(.3,.8,.3,1);transform-style:preserve-3d}
+  .block.flipped .inner{transform:rotateY(180deg)}
+  .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.07)}
+  .front{background:var(--c);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:22px;gap:10px;position:relative;transition:transform .25s}
+  .block:not(.flipped):hover .front{transform:translateY(-4px)}
+  .front svg{width:38px;height:38px}
+  .front h3{font-size:20px;font-weight:600;line-height:1.15}
+  .front p{font-size:14px;opacity:.92;font-style:italic}
+  .front .tap{position:absolute;right:16px;bottom:12px;font-size:11px;background:rgba(255,255,255,.25);padding:3px 10px;border-radius:999px}
+  .front .n{position:absolute;right:16px;top:14px;font-size:44px;font-weight:700;opacity:.18;line-height:1}
+  .back{background:#fff;transform:rotateY(180deg);display:flex;flex-direction:column}
+  .back .head{display:flex;align-items:center;gap:10px;padding:10px 14px;color:#fff;font-weight:600;font-size:14.5px;background:var(--c)}
+  .back .head svg{width:18px;height:18px}
+  .back ul{list-style:none;padding:12px 12px 14px;display:flex;flex-direction:column;gap:5px}
+  .back li{font-size:13.5px;line-height:1.4;padding:5px 8px 5px 22px;position:relative;border-radius:8px;transition:all .3s}
+  .back li::before{content:"";position:absolute;left:8px;top:.85em;width:6px;height:6px;border-radius:50%;background:var(--c)}
+
+  .block{transition:opacity .35s,filter .35s}
+
+  .block.next .front{animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,111,91,.0)}50%{box-shadow:0 0 0 6px rgba(239,111,91,.35)}}
+
+  footer{text-align:center;font-size:12px;color:var(--muted);padding:0 0 30px}
+  @media (max-width:900px){
+    .canvas{grid-template-columns:1fr 1fr;grid-template-areas:"kp kp" "ka kr" "vp vp" "cr ch" "cs cs" "co co" "rv rv"}
+  }
+  @media (max-width:560px){.canvas{grid-template-columns:1fr;grid-template-areas:"kp" "ka" "kr" "vp" "cr" "ch" "cs" "co" "rv"}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="eyebrow">UC 7777 &nbsp;|&nbsp; Lenice Pereira</div>
+    <h1>Business Model Canvas</h1>
+  </div>
+  <img class="brand" alt="Frames Creative logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjYwIDYwIDc3MCAxNTAiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcwLDcwKSI+PHBhdGggZD0iTTE4LDEzMiBWNDggQTMwLDMwIDAgMCAxIDQ4LDE4IEg5MiAgTTE4LDc4IEg3NCIgc3Ryb2tlPSIjMUU0REZGIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjM2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTkyLjMsMzQuNyBBNTcsNTcgMCAxIDAgMTkyLjMsMTE1LjMiIHN0cm9rZT0iIzAwQzJGRiIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBvcGFjaXR5PSIwLjkiLz48L2c+PHBhdGggZD0iTTMzMC43OSAxMDQuMDRMMzk1LjMwIDEwNC4wNEwzOTUuMzAgMTE2LjIwTDM0Ni43OSAxMTYuMjBMMzQ2Ljc5IDEyMS42NEwzODYuNDcgMTIxLjY0TDM4Ni40NyAxMzIuNTJMMzQ2Ljc5IDEzMi41MkwzNDYuNzkgMTQ1TDMzMC43OSAxNDUiIGZpbGw9IiMwRDBEMEQiLz48cGF0aCBkPSJNNDIyLjk4IDE0NUw0MDYuOTggMTQ1TDQwNi45OCAxMDQuMDRMNDU2LjQ1IDEwNC4wNFE0NjIuMjcgMTA0LjA0IDQ2Ni45MSAxMDUuMzVRNDcxLjU1IDEwNi42NiA0NzQuMjcgMTA5Ljc0UTQ3Ni45OSAxMTIuODEgNDc2Ljk5IDExOC4xMlE0NzYuOTkgMTIxLjY0IDQ3NS43MSAxMjMuOTRRNDc0LjQzIDEyNi4yNSA0NzIuMTkgMTI3LjUzUTQ2OS45NSAxMjguODEgNDY3LjA3IDEyOS4zOFE0NjYuNTAgMTI5LjUxIDQ2NS45OSAxMjkuNThRNDY3LjE0IDEyOS43MCA0NjguMTYgMTI5LjgzUTQ3Mi4yNiAxMzAuNDEgNDczLjg5IDEzMS45MVE0NzUuNTIgMTMzLjQyIDQ3NS41MiAxMzYuMjNMNDc1LjUyIDE0NUw0NTkuNTIgMTQ1TDQ1OS41MiAxMzguMTVRNDU5LjUyIDEzNi4yMyA0NTguNzkgMTM1LjI0UTQ1OC4wNSAxMzQuMjUgNDU1LjU5IDEzMy44NlE0NTMuMTIgMTMzLjQ4IDQ0OCAxMzMuNDhMNDIyLjk4IDEzMy40OEw0MjIuOTggMTQ1TTQyMi45OCAxMTYuODRMNDIyLjk4IDEyMi43OUw0NTYuNDUgMTIyLjc5UTQ1OC4zNyAxMjIuNzkgNDU5LjY4IDEyMi4xNVE0NjAuOTkgMTIxLjUxIDQ2MC45OSAxMTkuNzJRNDYwLjk5IDExOC4wNiA0NTkuNjggMTE3LjQ1UTQ1OC4zNyAxMTYuODQgNDU2LjQ1IDExNi44NCIgZmlsbD0iIzBEMEQwRCIvPjxwYXRoIGQ9Ik01MDMuNTkgMTQ1TDQ4NS45OSAxNDVMNTEzLjQ0IDEwNC4wNEw1MzEuMjMgMTA0LjA0TDU1OC45NSAxNDVMNTQxLjM1IDE0NUw1MzcuMzEgMTM4Ljc5TDUwNy41NSAxMzguNzlMNTAzLjU5IDE0NU01MTMuNzYgMTI5LjE5TDUzMS4xMSAxMjkuMTlMNTIyLjQwIDExNS43NSIgZmlsbD0iIzBEMEQwRCIvPjxwYXRoIGQ9Ik01ODQuMDcgMTA0LjA0TDYxNC4wOCAxMzUuMTRMNjQ0LjIzIDEwNC4wNEw2NjAuMjMgMTA0LjA0TDY2MC4yMyAxNDVMNjQ0LjIzIDE0NUw2NDQuMjMgMTI0LjAxTDYyMy43NSAxNDVMNjA0LjU1IDE0NUw1ODQuMDcgMTI0LjE0TDU4NC4wNyAxNDVMNTY4LjA3IDE0NUw1NjguMDcgMTA0LjA0IiBmaWxsPSIjMEQwRDBEIi8+PHBhdGggZD0iTTcyOC44NyAxMjcuNzJMNjg5LjE5IDEyNy43Mkw2ODkuMTkgMTMyLjg0TDczNy44MyAxMzIuODRMNzM3LjgzIDE0NUw2NzMuMTkgMTQ1TDY3My4xOSAxMDQuMDRMNzM3LjcwIDEwNC4wNEw3MzcuNzAgMTE2LjIwTDY4OS4xOSAxMTYuMjBMNjg5LjE5IDEyMS4zMkw3MjguODcgMTIxLjMyIiBmaWxsPSIjMEQwRDBEIi8+PHBhdGggZD0iTTc0Ny45MSAxMjkuOTZMNzY1LjM4IDEyOS45NlE3NjUuODMgMTMxLjMwIDc2OCAxMzIuMjNRNzcwLjE4IDEzMy4xNiA3NzMuODYgMTMzLjY0UTc3Ny41NCAxMzQuMTIgNzgyLjQwIDEzNC4xMlE3ODcuMjAgMTM0LjEyIDc4OS45OSAxMzMuODNRNzkyLjc3IDEzMy41NCA3OTMuOTIgMTMyLjgxUTc5NS4wNyAxMzIuMDcgNzk1LjA3IDEzMC43OVE3OTUuMDcgMTI5LjU4IDc5My4yMiAxMjguOTBRNzkxLjM2IDEyOC4yMyA3ODYuNjMgMTI3Ljk4UTc4MS44OSAxMjcuNzIgNzczLjMxIDEyNy43MlE3NjYuOTEgMTI3LjcyIDc2Mi4yNyAxMjcuMTFRNzU3LjYzIDEyNi41MCA3NTQuNjYgMTI1LjE5UTc1MS42OCAxMjMuODggNzUwLjI3IDEyMS44NlE3NDguODcgMTE5Ljg1IDc0OC44NyAxMTcuMDNRNzQ4Ljg3IDExMi4xNyA3NTIuMTYgMTA5UTc1NS40NiAxMDUuODMgNzYyLjE1IDEwNC4yNlE3NjguODMgMTAyLjcwIDc3OC44OCAxMDIuNzBRNzkzLjYwIDEwMi43MCA4MDEuMzggMTA2Ljk1UTgwOS4xNSAxMTEuMjEgODA5LjE1IDExOS4yMUw3OTIuNTggMTE5LjIxUTc5Mi4yNiAxMTcuMTAgNzg4LjYxIDExNS45OFE3ODQuOTYgMTE0Ljg2IDc3OC4yNCAxMTQuODZRNzcxLjU5IDExNC44NiA3NjguMzUgMTE1LjYyUTc2NS4xMiAxMTYuMzkgNzY1LjEyIDExOC4yNVE3NjUuMTIgMTE5LjIxIDc2Ni4wMiAxMTkuNzhRNzY2LjkxIDEyMC4zNiA3NjkuMTIgMTIwLjcxUTc3MS4zMyAxMjEuMDYgNzc1LjM2IDEyMS4xOVE3NzkuMzkgMTIxLjMyIDc4NS42MCAxMjEuMzJRNzkyLjQ1IDEyMS4zMiA3OTcuMjUgMTIxLjk5UTgwMi4wNSAxMjIuNjYgODA1LjAzIDEyNC4wMVE4MDggMTI1LjM1IDgwOS4zNSAxMjcuNDNRODEwLjY5IDEyOS41MSA4MTAuNjkgMTMyLjMzUTgxMC42OSAxMzcuMTkgODA3LjYyIDE0MC4yNlE4MDQuNTUgMTQzLjM0IDc5Ny44OSAxNDQuODFRNzkxLjIzIDE0Ni4yOCA3ODAuNDggMTQ2LjI4UTc3NC40MCAxNDYuMjggNzY5LjMxIDE0NS41OFE3NjQuMjMgMTQ0Ljg3IDc2MC4yNiAxNDMuNTBRNzU2LjI5IDE0Mi4xMiA3NTMuNTQgMTQwLjEwUTc1MC43OSAxMzguMDkgNzQ5LjM1IDEzNS41NlE3NDcuOTEgMTMzLjAzIDc0Ny45MSAxMjkuOTYiIGZpbGw9IiMwRDBEMEQiLz48cGF0aCBkPSJNMzQ4LjcxIDE4My4yMkwzNTIuOTMgMTgzLjIyUTM1Mi42NCAxODUuNzIgMzUxLjE3IDE4Ny40OFEzNDkuNzAgMTg5LjI0IDM0Ny4xNyAxOTAuMTdRMzQ0LjY0IDE5MS4xMCAzNDEuMTUgMTkxLjEwUTMzOC4yNCAxOTEuMTAgMzM1LjgzIDE5MC40MlEzMzMuNDEgMTg5Ljc1IDMzMS42NyAxODguNDFRMzI5LjkyIDE4Ny4wNiAzMjguOTYgMTg1LjA2UTMyOCAxODMuMDYgMzI4IDE4MC4zOFEzMjggMTc3LjY5IDMyOC45NiAxNzUuNjdRMzI5LjkyIDE3My42NiAzMzEuNjcgMTcyLjMwUTMzMy40MSAxNzAuOTQgMzM1LjgzIDE3MC4yNVEzMzguMjQgMTY5LjU2IDM0MS4xNSAxNjkuNTZRMzQ0LjY0IDE2OS41NiAzNDcuMTkgMTcwLjUyUTM0OS43MyAxNzEuNDggMzUxLjIwIDE3My4yNlEzNTIuNjcgMTc1LjAzIDM1Mi45MyAxNzcuNTZMMzQ4LjcxIDE3Ny41NlEzNDguMjkgMTc2LjIyIDM0Ny4zMSAxNzUuMjRRMzQ2LjM0IDE3NC4yNiAzNDQuODAgMTczLjc1UTM0My4yNyAxNzMuMjQgMzQxLjE1IDE3My4yNFEzMzguNTMgMTczLjI0IDMzNi41NSAxNzQuMDZRMzM0LjU2IDE3NC44NyAzMzMuNDcgMTc2LjQ2UTMzMi4zOSAxNzguMDQgMzMyLjM5IDE4MC4zOFEzMzIuMzkgMTgyLjY4IDMzMy40NyAxODQuMjVRMzM0LjU2IDE4NS44MiAzMzYuNTUgMTg2LjYzUTMzOC41MyAxODcuNDUgMzQxLjE1IDE4Ny40NVEzNDMuMjcgMTg3LjQ1IDM0NC43OSAxODYuOTRRMzQ2LjMxIDE4Ni40MiAzNDcuMjggMTg1LjQ2UTM0OC4yNiAxODQuNTAgMzQ4LjcxIDE4My4yMiIgZmlsbD0iIzAwQzJGRiIvPjxwYXRoIGQ9Ik0zNzQuNzkgMTkwLjY4TDM3MC41MyAxOTAuNjhMMzcwLjUzIDE2OS45OEwzODQuNTggMTY5Ljk4UTM4Ni45OCAxNjkuOTggMzg4Ljc1IDE3MC42M1EzOTAuNTMgMTcxLjI5IDM5MS41MiAxNzIuNjhRMzkyLjUxIDE3NC4wNyAzOTIuNTEgMTc2LjI1UTM5Mi41MSAxNzcuNzIgMzkyIDE3OC43NFEzOTEuNDkgMTc5Ljc3IDM5MC41OCAxODAuNDFRMzg5LjY3IDE4MS4wNSAzODguNDggMTgxLjM3UTM4Ny45NCAxODEuNTMgMzg3LjMzIDE4MS42NlEzODguMzkgMTgxLjc1IDM4OS4xOSAxODEuOTFRMzkwLjYzIDE4Mi4yNiAzOTEuMzUgMTgzLjE0UTM5Mi4wNyAxODQuMDIgMzkyLjA3IDE4NS43NUwzOTIuMDcgMTkwLjY4TDM4Ny44MSAxOTAuNjhMMzg3LjgxIDE4Ni4wNFEzODcuODEgMTg0Ljg2IDM4Ny4zOSAxODQuMjBRMzg2Ljk4IDE4My41NCAzODUuOTEgMTgzLjI5UTM4NC44MyAxODMuMDMgMzgyLjgyIDE4My4wM0wzNzQuNzkgMTgzLjAzTDM3NC43OSAxOTAuNjhNMzc0Ljc5IDE3My42MkwzNzQuNzkgMTc5LjcwTDM4NC41OCAxNzkuNzBRMzg2LjM3IDE3OS43MCAzODcuMzEgMTc4Ljg0UTM4OC4yNiAxNzcuOTggMzg4LjI2IDE3Ni41MFEzODguMjYgMTc1LjEwIDM4Ny4zMSAxNzQuMzZRMzg2LjM3IDE3My42MiAzODQuNTggMTczLjYyIiBmaWxsPSIjMDBDMkZGIi8+PHBhdGggZD0iTTQyNy43MSAxODIuMDRMNDE0LjY2IDE4Mi4wNEw0MTQuNjYgMTg3LjEzTDQzMC42MyAxODcuMTNMNDMwLjYzIDE5MC42OEw0MTAuNDAgMTkwLjY4TDQxMC40MCAxNjkuOThMNDMwLjU5IDE2OS45OEw0MzAuNTkgMTczLjUzTDQxNC42NiAxNzMuNTNMNDE0LjY2IDE3OC42OEw0MjcuNzEgMTc4LjY4IiBmaWxsPSIjMDBDMkZGIi8+PHBhdGggZD0iTTQ1MS4xNCAxOTAuNjhMNDQ2LjUzIDE5MC42OEw0NTYuMjYgMTY5Ljk4TDQ2MC44NyAxNjkuOThMNDcwLjY5IDE5MC42OEw0NjYuMDUgMTkwLjY4TDQ2NCAxODYuMTdMNDUzLjE5IDE4Ni4xN0w0NTEuMTQgMTkwLjY4TTQ1NC43OSAxODIuNjJMNDYyLjM3IDE4Mi42Mkw0NTguNTYgMTc0LjI2IiBmaWxsPSIjMDBDMkZGIi8+PHBhdGggZD0iTTQ4NS4zMSAxNzMuNTNMNDg1LjMxIDE2OS45OEw1MDcuMTQgMTY5Ljk4TDUwNy4xNCAxNzMuNTNMNDk4LjM3IDE3My41M0w0OTguMzcgMTkwLjY4TDQ5NC4xMSAxOTAuNjhMNDk0LjExIDE3My41MyIgZmlsbD0iIzAwQzJGRiIvPjxwYXRoIGQ9Ik01MjQuMjkgMTkwLjY4TDUyNC4yOSAxNjkuOThMNTI4LjU1IDE2OS45OEw1MjguNTUgMTkwLjY4IiBmaWxsPSIjMDBDMkZGIi8+PHBhdGggZD0iTTU2MC4xMyAxOTAuNjhMNTU0LjgyIDE5MC42OEw1NDUuNjcgMTY5Ljk4TDU1MC4zNyAxNjkuOThMNTU3LjQ3IDE4Ni45MEw1NjQuNTUgMTY5Ljk4TDU2OS4xOSAxNjkuOTgiIGZpbGw9IiMwMEMyRkYiLz48cGF0aCBkPSJNNjAzLjA0IDE4Mi4wNEw1ODkuOTkgMTgyLjA0TDU4OS45OSAxODcuMTNMNjA1Ljk1IDE4Ny4xM0w2MDUuOTUgMTkwLjY4TDU4NS43MyAxOTAuNjhMNTg1LjczIDE2OS45OEw2MDUuOTIgMTY5Ljk4TDYwNS45MiAxNzMuNTNMNTg5Ljk5IDE3My41M0w1ODkuOTkgMTc4LjY4TDYwMy4wNCAxNzguNjgiIGZpbGw9IiMwMEMyRkYiLz48L3N2Zz4=">
+</header>
+
+<div class="bar">
+  <button class="btn primary" id="nextBtn">▶ Reveal next</button>
+  <button class="btn" id="allBtn">Reveal all</button>
+  <button class="btn" id="resetBtn">↺ Reset</button>
+  <span class="progress" id="progress"></span>
+</div>
+
+<main class="canvas" id="canvas"></main>
+
+<footer>Click a card to reveal it · Space / → reveals the next one</footer>
+
+<script>
+const I = {
+  partners:'<path d="M7 11l3-3 4 4 3-3M3 13l4 4 3-1 4 3 7-7-4-5-3 1-3-2-4 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  activities:'<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>',
+  resources:'<path d="M3 7l9-4 9 4-9 4-9-4zM3 12l9 4 9-4M3 17l9 4 9-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  value:'<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  relation:'<path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/>',
+  channels:'<path d="M3 11l15-6v14L3 13zM18 9h3v6h-3M7 13l1 6h3l-1-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  segments:'<circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5.5" fill="none" stroke="currentColor" stroke-width="2"/>',
+  cost:'<rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="2"/>',
+  revenue:'<path d="M4 18l5-5 4 3 7-8M15 8h5v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+};
+
+const B = [
+  {id:'kp',title:'Key Partners',q:'Who helps us?',color:'var(--orange)',icon:'partners',
+   items:['Equipment stores and suppliers (cameras, drone, microphones)','Real estate agencies and local businesses in the Centro region','Freelance editors and videographers for busy periods','Instagram, TikTok and the Wix website']},
+  {id:'ka',title:'Key Activities',q:'What do we have to do well?',color:'var(--yellow)',icon:'activities',
+   items:['Creating ideas and video scripts','Filming at the client\'s location','Editing short videos for social media','Promotion on Instagram, TikTok and the website','Client support']},
+  {id:'kr',title:'Key Resources',q:'What do we need to deliver the value?',color:'var(--blue)',icon:'resources',
+   items:['Professional cameras, drone and microphones','Editing software','Creative and video skills','Website with clear packages and prices','The Frames Creative brand and portfolio']},
+  {id:'vp',title:'Value Propositions',q:'What value do we deliver?',color:'var(--green)',icon:'value',
+   items:['Videos that make your brand be seen','Complete service: idea, script, filming and editing','Content ready to publish, without losing time','Simple packages with clear prices on the website','Close and personal support','Drone filming at no extra cost']},
+  {id:'cr',title:'Customer Relationship',q:'How do we keep our customers?',color:'var(--purple)',icon:'relation',
+   items:['Personal support from the idea to the final video','Filming at the client\'s location','Monthly packages for regular clients','Fast replies by message']},
+  {id:'ch',title:'Channels',q:'How do we reach our customers?',color:'var(--red)',icon:'channels',
+   items:['Communicate: Instagram, TikTok and Google','Sell: website with packages and direct messages','Deliver: videos sent online, ready to publish']},
+  {id:'cs',title:'Customer Segments',q:'Who are we creating value for?',color:'var(--blue)',icon:'segments',
+   items:['Small business owners and consultants in the Centro region, 25–50 years old','Real estate, restaurants, hotels, beauty and health','People with little time who value quality and professionalism']},
+  {id:'co',title:'Cost Structure',q:'Where does the money go?',color:'var(--teal)',icon:'cost',
+   items:['Equipment: cameras, drone and microphones','Software and website','Marketing and social media ads','Transport to film at the client\'s location']},
+  {id:'rv',title:'Revenue Stream',q:'How does the business make money?',color:'var(--deep)',icon:'revenue',
+   items:['Single reels','Monthly packages of 4, 8 or 12 reels','Video scripts','Brand videos for companies','Payment by MB Way or Multibanco']}
+];
+
+
+const svg = (k,s='') => `<svg viewBox="0 0 24 24" aria-hidden="true">${I[k]}</svg>`;
+const canvas = document.getElementById('canvas');
+let revealed = new Set();
+
+B.forEach((b,i)=>{
+  const el=document.createElement('section');
+  el.className='block'; el.dataset.id=b.id; el.style.gridArea=b.id; el.style.setProperty('--c',b.color);
+  el.innerHTML=`<div class="inner">
+    <div class="face front">${svg(b.icon)}<h3>${b.title}</h3><p>${b.q}</p><span class="tap">click to reveal</span></div>
+    <div class="face back"><div class="head">${svg(b.icon)}${b.title}</div>
+      <ul>${b.items.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+  </div>`;
+  el.addEventListener('click',e=>{
+    toggle(b.id);
+  });
+  canvas.appendChild(el);
+});
+
+function update(){
+  document.querySelectorAll('.block').forEach(el=>el.classList.toggle('flipped',revealed.has(el.dataset.id)));
+  const nxt=B.find(b=>!revealed.has(b.id));
+  document.querySelectorAll('.block').forEach(el=>el.classList.toggle('next',!!nxt&&el.dataset.id===nxt.id&&revealed.size>0));
+  document.getElementById('progress').textContent=`${revealed.size} / ${B.length} revealed`;
+  document.getElementById('nextBtn').textContent = nxt ? '▶ Reveal next' : '✓ All revealed';
+}
+function toggle(id){ revealed.has(id)?revealed.delete(id):revealed.add(id); update(); }
+function revealNext(){ const n=B.find(b=>!revealed.has(b.id)); if(n){revealed.add(n.id);update();} }
+document.getElementById('nextBtn').onclick=revealNext;
+document.getElementById('allBtn').onclick=()=>{B.forEach(b=>revealed.add(b.id));update();};
+document.getElementById('resetBtn').onclick=()=>{revealed.clear();update();};
+document.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='ArrowRight'){e.preventDefault();revealNext();}
+});
+
+update();
+</script>
+</body>
+</html>
